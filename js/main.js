@@ -3,11 +3,11 @@ const functRand = function (min, max){
   return Math.floor(Math.random * (max - min + 1) + min);
   };
 
-  functRand(10, 35);
+functRand(10, 35);
 
-const functCheck = function (str, permLen){
+const funCheck = function (str, permLen){
   if (str.length > permLen) { return false; }
   return true;
   };
 
-  functCheck('Five', 5);
+funCheck('Five', 5);
