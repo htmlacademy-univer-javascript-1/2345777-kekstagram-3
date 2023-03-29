@@ -12,7 +12,8 @@ function generateId() {
 function generateUrl() {
   const urls = [];
   while (urls.length < 25) {
-    const url = `photos/${Math.floor(Math.random() * 25) + 1}.jpg`;
+
+    const url = `photos/${ids}.jpg`;
     if (!urls.includes(url)) {
       urls.push(url);
     }
