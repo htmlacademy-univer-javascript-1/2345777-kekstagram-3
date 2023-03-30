@@ -36,16 +36,16 @@ function generateUrl() {
 
 function generateDescription() {
   const descriptions = [
-    "Beautiful sunset over the mountains",
-    "Cute puppy playing in the park",
-    "Delicious homemade pizza",
-    "Amazing view from the top of the building",
-    "Colorful street art in the city",
-    "Cozy fireplace on a cold winter night",
-    "Refreshing cocktail by the pool",
-    "Adorable baby laughing and playing",
-    "Elegant wedding reception decorations",
-    "Fascinating architecture of an old castle"
+    'Beautiful sunset over the mountains',
+    'Cute puppy playing in the park',
+    'Delicious homemade pizza',
+    'Amazing view from the top of the building',
+    'Colorful street art in the city',
+    'Cozy fireplace on a cold winter night',
+    'Refreshing cocktail by the pool',
+    'Adorable baby laughing and playing',
+    'Elegant wedding reception decorations',
+    'Fascinating architecture of an old castle'
   ];
   const randomIndex = Math.floor(Math.random() * descriptions.length);
   return descriptions[randomIndex];
