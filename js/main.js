@@ -31,4 +31,4 @@ function arrayOfPhotos() {
   return resultArray;
 }
 
-arrayOfPhotos()
+arrayOfPhotos();
