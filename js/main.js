@@ -1,3 +1,5 @@
+
+
 const functRand = function (min, max){
   if (max < min) { return 0; }
   return Math.floor(Math.random * (max - min + 1) + min);
@@ -21,8 +23,8 @@ function arrayOfPhotos() {
         id: i + 1,
         url: `photos/${i+1}.png`,
         description:'море',
-        likes: random(15,200),
-        comments: random(0, 200)
+        likes: Math.random(15,200),
+        comments: Math.random(0, 200)
       }
     );
   }
