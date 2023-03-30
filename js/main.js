@@ -30,3 +30,5 @@ function arrayOfPhotos() {
   }
   return resultArray;
 }
+
+arrayOfPhotos()
