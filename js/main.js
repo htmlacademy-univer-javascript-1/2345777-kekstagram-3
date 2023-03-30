@@ -10,7 +10,6 @@ const funCheck = function (str, permLen){
   return true;
 };
 
-
 funCheck('Five', 5);
 function generateId() {
   const ids = [];
