@@ -1,3 +1,5 @@
+
+
 const functRand = function (min, max){
   if (max < min) { return 0; }
   return Math.floor(Math.random * (max - min + 1) + min);
@@ -11,3 +13,22 @@ const funCheck = function (str, permLen){
 };
 
 funCheck('Five', 5);
+
+function arrayOfPhotos() {
+  const resultArray = new Array(25);
+  for (let i = 0; i < resultArray.length; i++) {
+
+    resultArray[i] = (
+      {
+        id: i + 1,
+        url: `photos/${i+1}.png`,
+        description:'море',
+        likes: Math.random(15,200),
+        comments: Math.random(0, 200)
+      }
+    );
+  }
+  return resultArray;
+}
+
+arrayOfPhotos();
