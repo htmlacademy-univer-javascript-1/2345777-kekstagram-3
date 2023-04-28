@@ -1,21 +1,13 @@
-import { randint } from './util.js';
+import {getRandomIntFromRange, getRandomArrElem} from './utils.js';
 
-const getPhotoArray = function(){
-  const result =[];
-  for (let i = 0; i <=24; i++){
-    result.push(
-      {
-        id: i+1,
-        url: 'photos/'.concat(i+1, '.jpg'),
-        description: '',
-        likes: randint(15,200),
-        comments: randint(0,200)
-      }
-    );
-    return result;
-  }
-};
+const PHOTO_DESCRIPTIONS = ['Моя любимая!', 'Неплохо получилось, правда?', 'Что-то необычное...', 'Как-то так'];
 
-export{
-  getPhotoArray
-};
+const getPhoto = (id) => ({
+  id: id,
+  url: `photos/${id}.jpg`,
+  description: getRandomArrElem(PHOTO_DESCRIPTIONS),
+  likes: getRandomIntFromRange(15, 200),
+  comments: getRandomIntFromRange(0, 200)
+});
+
+export {getPhoto};

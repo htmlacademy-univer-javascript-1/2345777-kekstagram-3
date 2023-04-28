@@ -1,21 +1,22 @@
-const randint = function (min, max){
-  if (max < min && max >= 0 && min >= 0) {
-    return 0;
+const getRandomIntFromRange = (fromNum, toNum) => {
+  if (typeof fromNum !== 'number' || typeof toNum !== 'number') {
+    throw 'Переданы значения, не являющиеся числами!';
   }
-  return Math.floor(Math.random * (max - min + 1) + min);
+  if (fromNum > toNum) {
+    throw 'Началое значение интервала больше конечного!';
+  }
+  fromNum = Math.ceil(fromNum);
+  toNum = Math.floor(toNum);
+  return Math.floor(Math.random() * (toNum + 1 - fromNum) + fromNum);
 };
 
+const getRandomArrElem = (arr) => arr[getRandomIntFromRange(0, arr.length - 1)];
 
-const permittedString = function (str, permLen){
-  if (str.length > permLen) {
-    return false;
-  }
-  return true;
-};
+const hasLegalLength = (string, maxLegalLength) => string.length < maxLegalLength + 1;
 
-export{
-  randint,
-  permittedString
+const createIdGenerator = (stardId = 0) => {
+  let curId = stardId;
+  return () => curId++;
 };
 
 const getLastArrElem = (arr) => arr ? arr[arr.length - 1] : null;

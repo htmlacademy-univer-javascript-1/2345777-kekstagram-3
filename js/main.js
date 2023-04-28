@@ -1,6 +1,5 @@
-import './data.js';
-import './img.js';
-//Задание 7 часть 2
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 import { generatePhotos } from './photos-loading.js';
 import './img-editor/img-editor.js';
 generatePhotos();

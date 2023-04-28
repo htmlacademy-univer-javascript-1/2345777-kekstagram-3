@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 
 import './text-validators.js';
 import { isEscKey, clearElemValue } from '../utils.js';

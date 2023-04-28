@@ -31,5 +31,4 @@ const resetPreviewEffects = () => {
   previewClasses.add(DEFAULT_PREVIEW_EFFECT);
   defaultPreviewEffectElem.checked  = true;
 };
-
 export {addEffectsListener, removeEffectsListener, resetPreviewEffects, imgPreviewElem};
