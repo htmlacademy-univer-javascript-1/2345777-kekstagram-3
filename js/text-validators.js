@@ -1,27 +1,31 @@
-import { getLastArrElem } from '../utils.js';
+import { clearElemValue } from '../utils.js';
 
-const imgPreviewElem = document.querySelector('.img-upload__preview');
-const effectsListElem = document.querySelector('.effects__list');
-const DEFAULT_PREVIEW_EFFECT = 'effects__preview--none';
+const imgFormElem = document.querySelector('.img-upload__form');
+const hashtagElem = document.querySelector('.text__hashtags');
+const descriptionElem = document.querySelector('.text__description');
+const pristine = new Pristine(imgFormElem, {
+  classTo: 'img-upload__text',
+  errorClass: 'img-upload__form--invalid',
+  successClass: 'img-upload__from--valid',
+  errorTextParent: 'img-upload__text',
+  errorTextTag: 'span',
+  errorTextClass: 'img-upload__form__error',
+});
 
-const onEffectItemClick = (evt) => {
-  const targetClasses = evt.target.classList;
-  const previewClasses = imgPreviewElem.classList;
-  if (targetClasses.contains('effects__preview')) {
-    previewClasses.remove(getLastArrElem(previewClasses));
-    previewClasses.add(getLastArrElem(targetClasses));
+const resetTextValidators = () => {
+  pristine.reset();
+};
+
+const clearTextInputs = () => {
+  clearElemValue(hashtagElem);
+  clearElemValue(descriptionElem);
+};
+
+imgFormElem.addEventListener('submit', (evt) => {
+  const isValid = pristine.validate();
+  if (!isValid) {
+    evt.preventDefault();
   }
-};
+});
 
-const addEffectsListeners = () => {
-  effectsListElem.addEventListener('click', onEffectItemClick);
-};
-
-const removeEffectsListeners = () => {
-  effectsListElem.removeEventListener('click', onEffectItemClick);
-  const previewClasses = imgPreviewElem.classList;
-  previewClasses.remove(getLastArrElem(previewClasses));
-  previewClasses.add(DEFAULT_PREVIEW_EFFECT);
-};
-
-export {addEffectsListeners, removeEffectsListeners};
+export {resetTextValidators, clearTextInputs};
