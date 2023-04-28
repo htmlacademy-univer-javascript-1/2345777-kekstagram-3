@@ -1,13 +1,19 @@
-import {getRandomIntFromRange, getRandomArrElem} from './utils.js';
+import {getRandomPositiveInteger} from './validation.js';
 
-const PHOTO_DESCRIPTIONS = ['Моя любимая!', 'Неплохо получилось, правда?', 'Что-то необычное...', 'Как-то так'];
+const DESCRIPTIONS = ['nice', 'bad', 'good'];
 
-const getPhoto = (id) => ({
-  id: id,
-  url: `photos/${id}.jpg`,
-  description: getRandomArrElem(PHOTO_DESCRIPTIONS),
-  likes: getRandomIntFromRange(15, 200),
-  comments: getRandomIntFromRange(0, 200)
-});
+function getPhotos (num) {
+  const photos = new Array(num);
+  for (let i = 1; i <= photos.length; i++) {
+    photos[i - 1] = {
+      id: i,
+      url: `photos/${i}.jpg`,
+      description: DESCRIPTIONS[getRandomPositiveInteger(0, 2)],
+      likes: getRandomPositiveInteger(15, 200),
+      comments: getRandomPositiveInteger(0, 200)
+    };
+  }
+  return photos;
+}
 
-export {getPhoto};
+export {getPhotos};
